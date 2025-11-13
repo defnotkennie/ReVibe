@@ -38,7 +38,8 @@ const product = {
   },
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
   return (
     <div className="container py-10">
       <Link href="/shop" className="inline-flex items-center text-sm font-medium mb-6 hover:underline">
